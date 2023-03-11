@@ -2585,6 +2585,7 @@ end
 
 
 function RayfieldLibrary:LoadConfiguration()
+	doSave = true
 	if CEnabled then
 		pcall(function()
 			if isfile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension) then
