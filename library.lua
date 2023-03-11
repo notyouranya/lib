@@ -3,7 +3,7 @@ local NotificationDuration = 6.5
 local RayfieldFolder = "Rayfield"
 local ConfigurationFolder = RayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
-
+doSave = false
 
 
 local RayfieldLibrary = {
@@ -253,6 +253,7 @@ local function LoadConfiguration(Configuration)
 end
 
 local function SaveConfiguration()
+    if not doSave then return end
 	if not CEnabled then return end
 	local Data = {}
 	for i,v in pairs(RayfieldLibrary.Flags) do
