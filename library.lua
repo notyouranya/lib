@@ -1809,7 +1809,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				Error(text)
 			end
 			function DropdownSettings:Refresh(NewOptions,Default)
-				Dropdown.Selected.Text = Default
+				DropdownSettings:Set(Default)
 				for _, option in ipairs(Dropdown.List:GetChildren()) do
 					if option.ClassName == "Frame" and option.Name ~= ',---S=()earch' and option.Name ~= "ZZZZZZZZZ" and option.Name ~= "," and option.Name ~= '---S=()earch' then
 						option:Destroy()
