@@ -2596,7 +2596,7 @@ end
 
 
 function RayfieldLibrary:LoadConfiguration()
-	Rayfield.Enabled = false
+	Rayfield.Enabled = true
 	if CEnabled then
 		pcall(function()
 			if isfile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension) then
@@ -2607,4 +2607,4 @@ function RayfieldLibrary:LoadConfiguration()
 	end
 end
 
-return RayfieldLibrary
+return RayfieldLibrary	
