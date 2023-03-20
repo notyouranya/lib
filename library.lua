@@ -1,9 +1,21 @@
+--[[
+
+Rayfield Interface Suite
+by Sirius
+
+shlex | Designing + Programming
+iRay  | Programming
+
+]]
+
+
+
 local Release = "Beta 7R"
 local NotificationDuration = 6.5
 local RayfieldFolder = "Rayfield"
 local ConfigurationFolder = RayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
-doSave = false
+
 
 
 local RayfieldLibrary = {
@@ -103,7 +115,7 @@ local CoreGui = game:GetService("CoreGui")
 
 -- Interface Management
 local Rayfield =  game:GetObjects("rbxassetid://11637506633")[1]
-
+Rayfield.Enabled = false
 --studio
 --function gethui() return Rayfield end local http_request = nil local syn = {protect_gui = false,request = false,}local http = nil function writefile(tt,t,ttt)end function isfolder(t)end function makefolder(t)end function isfile(r)end function readfile(t)end
 
@@ -253,7 +265,6 @@ local function LoadConfiguration(Configuration)
 end
 
 local function SaveConfiguration()
-    if not doSave then return end
 	if not CEnabled then return end
 	local Data = {}
 	for i,v in pairs(RayfieldLibrary.Flags) do
@@ -956,14 +967,14 @@ function RayfieldLibrary:CreateWindow(Settings)
 	LoadingFrame.Subtitle.TextTransparency = 1
 	Main.Shadow.Image.ImageTransparency = 1
 	LoadingFrame.Version.TextTransparency = 1
-	LoadingFrame.Title.Text = Settings.LoadingTitle or "Rayfield Interface Suite"
-	LoadingFrame.Subtitle.Text = Settings.LoadingSubtitle or "by Sirius"
+	LoadingFrame.Title.Text = Settings.LoadingTitle or "Anya's Stuff (Free Version)"
+	LoadingFrame.Subtitle.Text = Settings.LoadingSubtitle or "アーニャ"
 	if Settings.LoadingTitle ~= "Rayfield Interface Suite" then
 		LoadingFrame.Version.Text = "アーニャ"
 	end
 	Topbar.Visible = false
 	Elements.Visible = false
-	LoadingFrame.Visible = false
+	LoadingFrame.Visible = true
 
 
 	pcall(function()
@@ -1206,14 +1217,14 @@ function RayfieldLibrary:CreateWindow(Settings)
 	Notifications.Template.Visible = false
 	Notifications.Visible = true
 	Rayfield.Enabled = true
-	wait()
+	wait(0.5)
 	TweenService:Create(Main, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
 	TweenService:Create(Main.Shadow.Image, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {ImageTransparency = 0.55}):Play()
-	wait()
+	wait(0.1)
 	TweenService:Create(LoadingFrame.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
-	wait()
+	wait(0.05)
 	TweenService:Create(LoadingFrame.Subtitle, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
-	wait()
+	wait(0.05)
 	TweenService:Create(LoadingFrame.Version, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
 
 	Elements.Template.LayoutOrder = 100000
@@ -1809,7 +1820,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				Error(text)
 			end
 			function DropdownSettings:Refresh(NewOptions,Default)
-				DropdownSettings:Set(Default)
+				Dropdown.Selected.Text = Default
 				for _, option in ipairs(Dropdown.List:GetChildren()) do
 					if option.ClassName == "Frame" and option.Name ~= ',---S=()earch' and option.Name ~= "ZZZZZZZZZ" and option.Name ~= "," and option.Name ~= '---S=()earch' then
 						option:Destroy()
@@ -2413,11 +2424,11 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 	Elements.Visible = true
 
-	wait()
+	wait(1.2)
 	TweenService:Create(LoadingFrame.Title, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 	TweenService:Create(LoadingFrame.Subtitle, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 	TweenService:Create(LoadingFrame.Version, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
-	wait()
+	wait(0.2)
 	TweenService:Create(Main, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {Size = UDim2.new(0, 500, 0, 475)}):Play()
 	TweenService:Create(Main.Shadow.Image, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {ImageTransparency = 0.4}):Play()
 
@@ -2429,21 +2440,21 @@ function RayfieldLibrary:CreateWindow(Settings)
 	Topbar.ChangeSize.ImageTransparency = 1
 	Topbar.Hide.ImageTransparency = 1
 
-	wait()
+	wait(0.8)
 	Topbar.Visible = true
 	TweenService:Create(Topbar, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
 	TweenService:Create(Topbar.CornerRepair, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
-	wait()
+	wait(0.1)
 	TweenService:Create(Topbar.Divider, TweenInfo.new(1, Enum.EasingStyle.Quint), {Size = UDim2.new(1, 0, 0, 1)}):Play()
-	wait()
+	wait(0.1)
 	TweenService:Create(Topbar.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
-	wait()
+	wait(0.1)
 	TweenService:Create(Topbar.Theme, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {ImageTransparency = 0.8}):Play()
-	wait()
+	wait(0.1)
 	TweenService:Create(Topbar.ChangeSize, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {ImageTransparency = 0.8}):Play()
-	wait()
+	wait(0.1)
 	TweenService:Create(Topbar.Hide, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {ImageTransparency = 0.8}):Play()
-	wait()
+	wait(0.3)
 	function Window:Prompt(PromptSettings)
 		local PromptUI = Prompt.Prompt
 		Prompt.Visible = true
@@ -2585,7 +2596,7 @@ end
 
 
 function RayfieldLibrary:LoadConfiguration()
-	doSave = true
+	Rayfield.Enabled = true
 	if CEnabled then
 		pcall(function()
 			if isfile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension) then
@@ -2596,4 +2607,4 @@ function RayfieldLibrary:LoadConfiguration()
 	end
 end
 
-return RayfieldLibrary
+return RayfieldLibrary	
