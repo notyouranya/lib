@@ -969,7 +969,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 	LoadingFrame.Version.TextTransparency = 1
 	LoadingFrame.Title.Text = Settings.LoadingTitle or "Anya's Stuff (Free Version)"
 	LoadingFrame.Subtitle.Text = Settings.LoadingSubtitle or "アーニャ"
-	if Settings.LoadingTitle ~= "Rayfield Interface Suite" then
+	if Settings.LoadingTitle ~= "Anya's Stuff (Free Version)" then
 		LoadingFrame.Version.Text = "アーニャ"
 	end
 	Topbar.Visible = false
