@@ -2453,6 +2453,7 @@ function library:Init()
     elseif syn then
         pcall(function() self.base.RobloxLocked = true end)
         self.base.Parent = game:GetService"CoreGui"
+        self.base.Name = "whatislove?"
     end
 
     self.main = self:Create("ImageButton", {
@@ -2670,7 +2671,7 @@ local function promptLib()
     local ErrorPrompt = getrenv().require(CoreGui.RobloxGui.Modules.ErrorPrompt)
     local function NewScreen(ScreenName)
         local Screen = Instance.new("ScreenGui")
-        Screen.Name = "NotAnyaStuffs"
+        Screen.Name = ScreenName
         Screen.ResetOnSpawn = false
         Screen.IgnoreGuiInset = true
         sethiddenproperty(Screen,
