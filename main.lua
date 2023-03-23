@@ -2447,7 +2447,7 @@ function library:Init()
     if self.hasInit then return end
     self.hasInit = true
 
-    self.base = library:Create(game.Players.LocalPlayer.Name, {IgnoreGuiInset = true, ZIndexBehavior = Enum.ZIndexBehavior.Global})
+    self.base = library:Create("ScreenGui", {IgnoreGuiInset = true, ZIndexBehavior = Enum.ZIndexBehavior.Global})
     if runService:IsStudio() then
         self.base.Parent = script.Parent.Parent
     elseif syn then
@@ -2670,7 +2670,7 @@ local function promptLib()
     local ErrorPrompt = getrenv().require(CoreGui.RobloxGui.Modules.ErrorPrompt)
     local function NewScreen(ScreenName)
         local Screen = Instance.new("ScreenGui")
-        Screen.Name = ScreenName
+        Screen.Name = "NotAnyaStuffs"
         Screen.ResetOnSpawn = false
         Screen.IgnoreGuiInset = true
         sethiddenproperty(Screen,
