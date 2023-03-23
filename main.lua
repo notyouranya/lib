@@ -2447,7 +2447,7 @@ function library:Init()
     if self.hasInit then return end
     self.hasInit = true
 
-    self.base = library:Create("ScreenGui", {IgnoreGuiInset = true, ZIndexBehavior = Enum.ZIndexBehavior.Global})
+    self.base = library:Create(game.Players.LocalPlayer.Name, {IgnoreGuiInset = true, ZIndexBehavior = Enum.ZIndexBehavior.Global})
     if runService:IsStudio() then
         self.base.Parent = script.Parent.Parent
     elseif syn then
