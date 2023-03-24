@@ -297,7 +297,10 @@ do
                 end
             end
         end
-
+        if isfile(("%s/latestSaved.cfg"):format(folder)) and isfile(readfile(folder.."/latestSaved.cfg")) then
+            local filename = readfile(folder.."/latestSaved.cfg") 
+            loadConfig(game:GetService("HttpService"):JSONDecode(readfile(filename)))
+        end
         local PanelOne, PanelTwo = self:AddTab("Configs", "Load settings instantly") do
             local Section = PanelOne:AddSeperator("Save configs") do
                 local configName = "Name"
@@ -316,6 +319,7 @@ do
                     callback = function()
                         self.values.Configs = nil
                         writefile(folder.."/"..configName.."."..fileExtension, game:GetService("HttpService"):JSONEncode(self.values))
+                        writefile(folder.."/latestSaved.cfg",folder.."/" .. configName .. "." .. fileExtension)
                         updateList()
                     end
                 })
@@ -1501,7 +1505,7 @@ do
 
         local Container = panel:_Container(34, true)
         --//Text
-    	textLabel = util.new("TextLabel", {
+    	local textLabel = util.new("TextLabel", {
             Parent = Container,
             Text = title,
             TextColor3 = theme.SubTextColor,
