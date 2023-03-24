@@ -1492,6 +1492,36 @@ do
             callback = callback
         }
     end
+    function panel.TextLabel(panel, data) --> Select one
+        
+        --//ui.values
+        local title = data.title
+        local value = panel:_GlobalTable()
+
+
+        local Container = panel:_Container(34, true)
+        --//Text
+    	textLabel = util.new("TextLabel", {
+            Parent = Container,
+            Text = title,
+            TextColor3 = theme.SubTextColor,
+            TextSize = 12,
+            Font = Enum.Font.Gotham,
+            Size = UDim2.new(0,0,0,16),
+            Position = UDim2.new(0, 0, 0, -2),
+            TextYAlignment = Enum.TextYAlignment.Center,
+        })
+        local function setText(t)
+            textLabel.Text = t
+        end
+
+        panel.seperators[panel.currentSeperator][title] = setText
+
+        return {
+            setText = setText,
+            callback = callback
+        }
+    end
 
     function panel.AddTextInput(panel, data) --> Select one
         local callback = data.callback or EmptyFunction
