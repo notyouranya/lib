@@ -2,7 +2,7 @@ local RunService = game:GetService("RunService")
 local input = game:GetService("UserInputService")
 local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 local inset = game:GetService("GuiService"):GetGuiInset()
-
+local KeyBind = Enum.KeyCode.RightControl
 local function EmptyFunction() end
 
 --//Utils
@@ -433,15 +433,15 @@ do
     end
 
     function library:SetKeybind(new)
-        self.keybind = new
-        return self.keybind
+        KeyBind = new
+        return KeyBind
     end
 
     function library:_registerKeybind()
         local debounce = false
         table.insert(self._connections, input.InputBegan:Connect(function(inp, gpe)
             if inp.UserInputType == Enum.UserInputType.Keyboard and not gpe then
-                if inp.KeyCode == self.keybind and not debounce then
+                if inp.KeyCode == KeyBind and not debounce then
                     debounce = true
                     self:ToggleGUI()
                     wait(0.15)
