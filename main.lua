@@ -287,7 +287,7 @@ do
                                     if config[tab][panelNum][seperator] then
                                         local setTo = config[tab][panelNum][seperator][element]
                                         if setTo ~= nil then
-                                            setElement(setTo)
+                                            pcall(setElement,setTo)
                                         end
                                     end
                                 end
